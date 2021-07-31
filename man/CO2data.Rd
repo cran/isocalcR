@@ -19,7 +19,7 @@ https://www.sciencedirect.com/science/article/abs/pii/S1125786520300874
 data(CO2data)
 }
 \description{
-Compiled records of atmospheric CO2 concentrations and stable carbon isotopes to reconstruct climate and derive plant ecophysiological indices from tree rings. Data are from Belmecheri, Lavergne, 2020, Dendrochronologia.
+Compiled records of atmospheric CO2 concentrations and stable carbon isotopes to reconstruct climate and derive plant ecophysiological indices from tree rings. Data are from Belmecheri, Lavergne, 2020, Dendrochronologia. Updated based on their methodology beyond C.E. 2019.
 }
 \examples{
 

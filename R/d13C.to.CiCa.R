@@ -61,7 +61,7 @@ d13C.to.CiCa<- function(d13C, year, elevation, temp, frac = 0) {
   deltaHa <- 37830 #Activation energy for Gammastar (J/mol), Bernacchi et al. 2001.
   Temp.C <- temp
   Gammastar25 <- 4.332 #Pa, value based on Bernacchi et al. (2001), converted to Pa by T. Davis assuming elevation of 227.076 m.a.s.l. From Beni Stocker's RPmodel.
-  Gammastar <- Gammastar25*(Patm/P0)*exp(1)^((deltaHa*(Temp.C-298))/(R*Temp.C*298)) #CO2 compensation point in the absence of mitochondrial respiration, units (Pa)
+  Gammastar <- Gammastar25*Patm/P0*exp(1)^((deltaHa*((Temp.C+273.15)-298.15))/(R*(Temp.C+273.15)*298.15)) #CO2 compensation point in the absence of mitochondrial respiration, units (Pa)
 
   pCa <- (1.0e-6)*Ca*Patm #Need to convert atm CO2 (ppm) to atm CO2 (Pa)
   Ci <- ((D13C-a+f*(Gammastar/pCa))/(b-a))*Ca
