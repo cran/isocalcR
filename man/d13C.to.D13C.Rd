@@ -4,23 +4,23 @@
 \alias{d13C.to.D13C}
 \title{d13C.to.D13C}
 \usage{
-d13C.to.D13C(d13C, year, frac = 0)
+d13C.to.D13C(d13C.plant, year, frac = 0)
 }
 \arguments{
-\item{d13C}{Measured plant tissue carbon isotope signature, per mille (‰)}
+\item{d13C.plant}{Measured plant tissue carbon isotope signature, per mille (‰)}
 
 \item{year}{Year to which the sample corresponds}
 
-\item{frac}{Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)}
+\item{frac}{Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material with no post-photosynthetic fractionation. User should supply reasonable value if leaf fractionation present or if samples are from wood (generally -1.9 - -2.1).}
 }
 \value{
-Carbon isotope discrimination in units of per mille (‰)
+Carbon isotope discrimination in units of per mille (‰).
 }
 \description{
 Calculates leaf carbon isotope discrimination given plant tissue d13C signature.
 }
 \examples{
-d13C.to.D13C(-27, 2015)
+d13C.to.D13C(d13C.plant = -27, year = 2015)
 
 
 
@@ -32,6 +32,8 @@ Badeck, F.-W., Tcherkez, G., Nogués, S., Piel, C. & Ghashghaie, J. (2005). Post
 Belmecheri, S. & Lavergne, A. (2020). Compiled records of atmospheric CO2 concentrations and stable carbon isotopes to reconstruct climate and derive plant ecophysiological indices from tree rings. Dendrochronologia, 63, 125748.
 
 Craig, H. (1953). The geochemistry of the stable carbon isotopes. Geochim. Cosmochim. Acta, 3, 53–92.
+
+Cernusak, L. A. & Ubierna, N. Carbon Isotope Effects in Relation to CO2 Assimilation by Tree Canopies. in Stable Isotopes in Tree Rings: inferring physiological, climatic, and environmental responses 291–310 (2022). doi:10.1007/978-3-030-92698-4_9.
 
 Farquhar, G., O’Leary, M. & Berry, J. (1982). On the relationship between carbon isotope discrimination and the intercellular carbon dioxide concentration in leaves. Aust. J. Plant Physiol., 9, 121–137.
 

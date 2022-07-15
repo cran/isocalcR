@@ -4,10 +4,18 @@
 \alias{d13C.to.CiCa}
 \title{d13C.to.CiCa}
 \usage{
-d13C.to.CiCa(d13C, year, elevation, temp, frac = 0)
+d13C.to.CiCa(
+  d13C.plant,
+  year,
+  elevation,
+  temp,
+  method = "simple",
+  tissue = "leaf",
+  frac = 0
+)
 }
 \arguments{
-\item{d13C}{Measured plant tissue carbon isotope signature, per mille (‰)}
+\item{d13C.plant}{Measured plant tissue carbon isotope signature, per mille (‰)}
 
 \item{year}{Year to which the sample corresponds}
 
@@ -15,17 +23,38 @@ d13C.to.CiCa(d13C, year, elevation, temp, frac = 0)
 
 \item{temp}{Leaf temperature (°C)}
 
+\item{method}{Method to calculate CiCa (simple, photorespiration, or mesophyll). See Lavergne et al. 2022, Ma et al. 2021, Gong et al. 2022}
+
+\item{tissue}{Plant tissue of the sample (i.e. leaf or wood) used only during calculations using the simple formulation. Defaults to "leaf".}
+
 \item{frac}{Post-photosynthetic fractionation factor, defaults to 0 assuming leaf material, user should supply reasonable value if from wood (generally -1.9 - -2.1)}
 }
 \value{
 The ratio of leaf intercellular to atmospheric CO2 (Ci/Ca), unitless
 }
 \description{
-Calculates the ratio of the concentration of leaf intercellular to atmospheric CO2, unitless.
+Calculates the ratio of the concentration of leaf intercellular to atmospheric CO2, unitless. Defaults to the 'simple' formulation (See Lavergne et al. 2022) and 'leaf' tissue to calculate leaf Ci, and subsequently CiCa. Under the 'simple' formulation the apparent fractionation by Rubisco is 27 permille if from 'leaf' tissue and 25.5 permille if from wood tissue (Cernusak and Ubierna 2022).
 }
 \examples{
-d13C.to.CiCa(-27, 2015, 900, 24)
+d13C.to.CiCa(d13C.plant = -27,
+year = 2015,
+elevation = 900,
+temp = 24,
+method = "simple",
+tissue = "leaf")
 
+d13C.to.CiCa(d13C.plant = -27,
+year = 2015,
+elevation = 900,
+temp = 24,
+method = "simple",
+tissue = "wood")
+
+d13C.to.CiCa(d13C.plant = -27,
+year = 2015,
+elevation = 900,
+temp = 24,
+method = "photorespiration")
 
 
 
@@ -39,11 +68,19 @@ Bernacchi, C.J., Singsaas, E.L., Pimentel, C., Portis Jr, A.R. & Long, S.P. (200
 
 Craig, H. (1953). The geochemistry of the stable carbon isotopes. Geochim. Cosmochim. Acta, 3, 53–92.
 
+Cernusak, L. A. & Ubierna, N. Carbon Isotope Effects in Relation to CO2 Assimilation by Tree Canopies. in Stable Isotopes in Tree Rings: inferring physiological, climatic, and environmental responses 291–310 (2022). doi:10.1007/978-3-030-92698-4_9.
+
 Davies, J.A. & Allen, C.D. (1973). Equilibrium, Potential and Actual Evaporation from Cropped Surfaces in Southern Ontario. J. Appl. Meteorol., 12, 649–657.
 
 Farquhar, G., O’Leary, M. & Berry, J. (1982). On the relationship between carbon isotope discrimination and the intercellular carbon dioxide concentration in leaves. Aust. J. Plant Physiol., 9, 121–137.
 
 Frank, D.C., Poulter, B., Saurer, M., Esper, J., Huntingford, C., Helle, G., et al. (2015). Water-use efficiency and transpiration across European forests during the Anthropocene. Nat. Clim. Chang., 5, 579–583.
+
+Gong, X. Y. et al. Overestimated gains in water‐use efficiency by global forests. Glob. Chang. Biol. 1–12 (2022) doi:10.1111/gcb.16221.
+
+Lavergne, A. et al. Global decadal variability of plant carbon isotope discrimination and its link to gross primary production. Glob. Chang. Biol. 28, 524–541 (2022).
+
+Ma, W. T. et al. Accounting for mesophyll conductance substantially improves 13C-based estimates of intrinsic water-use efficiency. New Phytol. 229, 1326–1338 (2021).
 
 Tsilingiris, P.T. (2008). Thermophysical and transport properties of humid air at temperature range between 0 and 100°C. Energy Convers. Manag., 49, 1098–1110.
 
