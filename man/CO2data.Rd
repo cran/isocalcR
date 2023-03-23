@@ -5,7 +5,7 @@
 \alias{CO2data}
 \title{CO2data}
 \format{
-A data frame with 2020 rows and 3 variables:
+A data frame with 2023 rows and 3 variables:
 \describe{
   \item{yr}{Year of CO2 and d13CO2 measurement}
   \item{Ca}{Atmospheric CO2 concentration, in ppm}
@@ -25,6 +25,7 @@ Compiled records of atmospheric CO2 concentrations and stable carbon isotopes to
 
 data(CO2data)
 head(CO2data)
+tail(CO2data)
 
 }
 \references{
